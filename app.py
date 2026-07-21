@@ -1,3 +1,4 @@
+import os
 import gradio as gr
 from dotenv import load_dotenv
 from research_manager import ResearchManager
@@ -20,4 +21,7 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="sky")) as ui:
     run_button.click(fn=run, inputs=query, outputs=report)
     query.submit(fn=run, inputs=query, outputs=report)
 
-ui.launch(inbrowser=True)
+ui.launch(
+    server_name="0.0.0.0",
+    server_port=int(os.environ.get("PORT", 7860)),
+    inbrowser=True)
