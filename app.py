@@ -24,4 +24,5 @@ with gr.Blocks(theme=gr.themes.Default(primary_hue="sky")) as ui:
 ui.launch(
     server_name="0.0.0.0",
     server_port=int(os.environ.get("PORT", 7860)),
-    inbrowser=True)
+    inbrowser=True,
+    share=True)
